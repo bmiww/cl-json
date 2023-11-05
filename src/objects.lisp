@@ -63,7 +63,8 @@ registered in the superclass."
 (eval-when (:compile-toplevel :load-toplevel :execute)
  (defclass fluid-object (standard-object) ()
    (:documentation "Any instance of a fluid class.")
-   (:metaclass fluid-class)))
+   (:metaclass fluid-class))
+ (finalize-inheritance (find-class 'fluid-object)))
 
 (defmethod compute-class-precedence-list ((class fluid-class))
   "Objects of fluid classes are fluid objects."
