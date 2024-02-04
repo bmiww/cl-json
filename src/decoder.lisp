@@ -103,7 +103,7 @@ as a string."
         (read-part Int nil #\-)
         (read-part Frac #\.)
         (read-part Exp #\e #\- #\+)
-        (if c (unread-char c stream))
+	(when c (unread-char c stream))
         (values category (coerce (cdr chars) 'string))))))
 
 (defun read-json-name-token (stream)
